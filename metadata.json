@@ -1,0 +1,7 @@
+{
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "name": "LuxeSpace AI",
+  "description": "A premium AI-powered interior design platform that transforms spatial captures into photorealistic architectural visualizations and synthesizes bespoke 3D assets."
+}
