@@ -5,27 +5,45 @@ import { User, DesignHistoryItem, SupportTicket, ChatMessage, GeneratedAsset } f
 const delay = (ms: number = 800) => new Promise(resolve => setTimeout(resolve, ms));
 
 // Quality of Life: Image Compression Utility
-const compressImage = (base64: string, maxWidth: number = 1200, quality: number = 0.7): Promise<string> => {
+const compressImage = (src: string, maxWidth: number = 1200, quality: number = 0.7): Promise<string> => {
   return new Promise((resolve) => {
+    // If it's already a small base64 or not an image, just return it
+    if (!src || (!src.startsWith('data:') && !src.startsWith('http'))) {
+      return resolve(src);
+    }
+
     const img = new Image();
-    img.src = base64;
+    
+    // Handle CORS for external URLs
+    if (src.startsWith('http')) {
+      img.crossOrigin = "anonymous";
+    }
+
+    img.src = src;
     img.onload = () => {
-      const canvas = document.createElement('canvas');
-      let width = img.width;
-      let height = img.height;
+      try {
+        const canvas = document.createElement('canvas');
+        let width = img.width;
+        let height = img.height;
 
-      if (width > maxWidth) {
-        height = (maxWidth / width) * height;
-        width = maxWidth;
+        if (width > maxWidth) {
+          height = (maxWidth / width) * height;
+          width = maxWidth;
+        }
+
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        ctx?.drawImage(img, 0, 0, width, height);
+        
+        // This might still throw if the server doesn't support CORS
+        resolve(canvas.toDataURL('image/jpeg', quality));
+      } catch (e) {
+        console.warn('Could not compress image due to security restrictions (CORS), using original.', e);
+        resolve(src);
       }
-
-      canvas.width = width;
-      canvas.height = height;
-      const ctx = canvas.getContext('2d');
-      ctx?.drawImage(img, 0, 0, width, height);
-      resolve(canvas.toDataURL('image/jpeg', quality));
     };
-    img.onerror = () => resolve(base64); // Fallback to original if error
+    img.onerror = () => resolve(src); // Fallback to original if error
   });
 };
 
