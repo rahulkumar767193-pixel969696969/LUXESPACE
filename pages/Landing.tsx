@@ -1,9 +1,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
-import * as ReactRouterDOM from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-
-const { Link } = ReactRouterDOM;
 
 const Landing = () => {
   const revealRefs = useRef<(HTMLDivElement | null)[]>([]);

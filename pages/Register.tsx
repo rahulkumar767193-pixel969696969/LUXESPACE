@@ -1,10 +1,8 @@
 
 import React, { useState } from 'react';
-import * as ReactRouterDOM from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { MockAPI } from '../api';
 import { User } from '../types';
-
-const { Link, useNavigate } = ReactRouterDOM;
 
 interface RegisterProps {
   onLogin: (u: User) => void;

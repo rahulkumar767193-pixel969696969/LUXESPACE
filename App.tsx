@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 // Use namespace import to resolve "no exported member" errors in certain environments
-import * as ReactRouterDOM from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Link, Navigate, useLocation } from 'react-router-dom';
 import Landing from './pages/Landing';
 import Dashboard from './pages/Dashboard';
 import Gallery from './pages/Gallery';
@@ -13,10 +13,6 @@ import ChatWidget from './components/ChatWidget';
 import { User } from './types';
 import { MockAPI } from './api';
 import { PRELOAD_IMAGES } from './constants';
-
-const { HashRouter, Routes, Route, Link, Navigate, useLocation } = ReactRouterDOM;
-// Alias HashRouter as Router for internal use
-const Router = HashRouter;
 
 // Defined ProtectedRouteProps to explicitly handle children and user state
 interface ProtectedRouteProps {
