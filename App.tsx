@@ -67,7 +67,7 @@ const App: React.FC = () => {
       <div className="min-h-screen flex flex-col transition-colors duration-500 bg-[var(--bg)]">
         <Navbar user={user} onLogout={handleLogout} theme={theme} onToggleTheme={toggleTheme} />
         
-        <main className="flex-grow">
+        <main className="flex-grow pt-20">
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/gallery" element={<Gallery />} />
@@ -88,19 +88,10 @@ const App: React.FC = () => {
 };
 
 const Navbar = ({ user, onLogout, theme, onToggleTheme }: { user: User | null; onLogout: () => void; theme: string; onToggleTheme: () => void }) => {
-  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const isHome = location.pathname === '/';
-
   return (
-    <nav className={`fixed top-0 w-full z-[100] transition-all duration-500 ${scrolled || !isHome ? 'glass py-4' : 'bg-transparent py-8'}`}>
+    <nav className="fixed top-0 left-0 w-full z-[9999] bg-[var(--bg)] border-b border-[var(--border)] py-5">
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <Link to="/" className="flex items-center gap-4 group">
           <div className="w-10 h-10 bg-[#D4AF37] rounded-xl flex items-center justify-center text-black font-black text-xl transition-all group-hover:rotate-12 group-hover:scale-110 shadow-xl">
