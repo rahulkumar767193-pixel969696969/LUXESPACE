@@ -30,7 +30,7 @@ const Support = ({ user }: { user: User }) => {
   };
 
   return (
-    <div className="min-h-screen pt-32 pb-24 transition-colors duration-500 bg-[var(--bg)]">
+    <div className="min-h-screen pt-12 pb-24 transition-colors duration-500 bg-[var(--bg)]">
       <div className="max-w-7xl mx-auto px-6">
         <header className="mb-16 reveal-up active border-l border-[var(--border)] pl-8">
           <span className="badge-premium mb-6 inline-block">Support Center</span>

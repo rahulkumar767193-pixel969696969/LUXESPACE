@@ -111,7 +111,7 @@ const Dashboard: React.FC<DashboardProps> = ({ user }) => {
   };
 
   return (
-    <div className="min-h-screen pt-40 pb-24 page-transition bg-[var(--bg)]">
+    <div className="min-h-screen pt-12 pb-24 page-transition bg-[var(--bg)]">
       <div className="max-w-7xl mx-auto px-6">
         <header className="mb-20 reveal-up active border-l border-[var(--border)] pl-8 md:pl-16">
           <div className="flex items-center gap-6 mb-8">

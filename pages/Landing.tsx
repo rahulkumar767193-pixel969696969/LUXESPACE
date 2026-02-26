@@ -143,7 +143,7 @@ const Landing = () => {
   return (
     <div className="overflow-x-hidden min-h-screen relative page-transition bg-[var(--bg)]">
       {/* Hero Section - Full Screen Slideshow */}
-      <section className="relative h-screen w-full overflow-hidden">
+      <section className="relative h-[calc(100vh-5rem)] w-full overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeHeroSlide}

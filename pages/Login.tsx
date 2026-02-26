@@ -31,7 +31,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
   };
 
   return (
-    <div className="min-h-screen pt-32 flex items-center justify-center px-6 relative overflow-hidden transition-colors duration-400" style={{ backgroundColor: 'var(--bg)' }}>
+    <div className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden transition-colors duration-400" style={{ backgroundColor: 'var(--bg)' }}>
       <div className="absolute top-0 right-0 w-[60%] h-[60%] bg-[#D4AF37]/5 blur-[150px] rounded-full animate-pulse"></div>
       <div className="absolute bottom-0 left-0 w-[40%] h-[40%] bg-blue-500/5 blur-[150px] rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
       

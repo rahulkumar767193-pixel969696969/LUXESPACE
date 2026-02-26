@@ -27,7 +27,7 @@ const Gallery = () => {
     : GALLERY_ITEMS.filter(item => item.category === activeCategory);
 
   return (
-    <div className="pt-32 pb-24 min-h-screen bg-[var(--bg)]">
+    <div className="pt-12 pb-24 min-h-screen bg-[var(--bg)]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-20">
           <motion.span 

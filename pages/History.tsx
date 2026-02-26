@@ -25,7 +25,7 @@ const History = ({ user }: { user: User }) => {
   };
 
   return (
-    <div className="min-h-screen pt-32 pb-24 transition-colors duration-400" style={{ backgroundColor: 'var(--bg)' }}>
+    <div className="min-h-screen pt-12 pb-24 transition-colors duration-400" style={{ backgroundColor: 'var(--bg)' }}>
       <div className="max-w-7xl mx-auto px-6">
         <header className="flex justify-between items-end mb-16 reveal-up active">
           <div>
